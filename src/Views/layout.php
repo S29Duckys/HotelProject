@@ -1,3 +1,5 @@
+<?php $currentPath = $_SERVER['REQUEST_URI']; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -29,24 +31,24 @@
 
             <nav class="flex-1 px-4 space-y-2 overflow-y-auto custom-scrollbar">
                 <p class="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] px-4 py-2">Menu Principal</p>
-                <a href="<?= '/' ?>" id="btn-dashboard" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5 active-nav">
+                <a href="<?= '/' ?>" id="btn-dashboard" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5 <?= $currentPath === '/' ? 'active-nav' : '' ?>">
                     <i class="fas fa-th-large w-5"></i> Dashboard
                 </a>
-                <a href="<?= '/client' ?>" id="btn-clients" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5">
+                <a href="<?= '/client' ?>" id="btn-clients" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5 <?= $currentPath === '/client' ? 'active-nav' : '' ?>">
                     <i class="fas fa-users w-5"></i> Clients
                 </a>
-                <a href="<?= '/chambres' ?>" id="btn-chambres" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5">
+                <a href="<?= '/chambres' ?>" id="btn-chambres" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5 <?= $currentPath === '/chambres' ? 'active-nav' : '' ?>">
                     <i class="fas fa-bed w-5"></i> Chambres
                 </a>
 
                 <p class="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] px-4 py-6">Services</p>
-                <a href="<?= '/restaurent' ?>" id="btn-restaurant" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5">
+                <a href="<?= '/restaurent' ?>" id="btn-restaurant" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5 <?= $currentPath === '/restaurent' ? 'active-nav' : '' ?>">
                     <i class="fas fa-utensils w-5"></i> Restaurant
                 </a>
-                <a href="<?= '/bar' ?>" id="btn-bar" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5">
+                <a href="<?= '/bar' ?>" id="btn-bar" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5 <?= $currentPath === '/bar' ? 'active-nav' : '' ?>">
                     <i class="fas fa-glass-martini-alt w-5"></i> Bar & Stocks
                 </a>
-                <a href="<?= '/infra' ?>" id="btn-infrastructures" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5">
+                <a href="<?= '/infra' ?>" id="btn-infrastructures" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5 <?= $currentPath === '/infra' ? 'active-nav' : '' ?>">
                     <i class="fas fa-swimmer w-5"></i> Piscines & Salles
                 </a>
             </nav>
