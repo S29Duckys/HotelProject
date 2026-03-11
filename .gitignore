@@ -1,2 +1,9 @@
 /vendor/
 composer.lock
+
+# Sql 
+queries.sql
+
+# Env
+.env
+!.exemple.env
