@@ -2,7 +2,7 @@
 
 namespace MVC\Controllers;
 
-class RestauController
+class RestaurentController
 {
     public function __construct()
     {
