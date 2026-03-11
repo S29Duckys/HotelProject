@@ -12,7 +12,8 @@ $router->get('/client' , "ClientController@index");
 $router->get('/infra', "InfraController@index");
 $router->get('/bar' , "BarController@index");
 $router->get('/chambres' , "ChambresController@index");
-$router->get('/restaurent', "RestaurantController@index");
+$router->get('/restaurent', "RestaurentController@index");
+
 $router->get('/auth/login/', "UserController@showLogin");
 $router->get('/auth/register/', "UserController@showRegister");
 $router->get('/auth/logout/', "UserController@logout");
