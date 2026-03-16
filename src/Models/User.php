@@ -6,8 +6,8 @@ class User {
 
     private $username;
     private $password;
-    private $id;
-    private $admin;
+    private $id_user;
+    private $role;
 
     public function getUsername() {
         return $this->username;
@@ -18,12 +18,12 @@ class User {
     }
 
     public function getId() {
-        return $this->id;
+        return $this->id_user;
     }
 
-    public function getAdmin()
+    public function getRole()
     {
-        return $this->admin;
+        return $this->role;
     }
     public function setUsername(String $username) {
         $this->username = $username;
@@ -34,11 +34,11 @@ class User {
     }
 
     public function setId() {
-        $this->id = uniqid();
+        $this->id_user = uniqid();
     }
 
-    public function setAdmin($admin)
+    public function setAdmin($role)
     {
-        $this->admin = $admin;
+        $this->role = $role;
     }
 }
