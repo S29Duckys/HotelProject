@@ -31,7 +31,11 @@ if (!isset($_SESSION['user'])) {
                 </div>
                 <div class="text-right">
                     <span class="px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest ${ch.occupe ? 'bg-red-50 text-red-600 border border-red-100' : 'bg-emerald-50 text-emerald-600 border border-emerald-100'}">
-                        --Statu : libre / occuper / reserver
+                        --Statu : <?php if ($chambre->getOccupe() === 1) {
+                            echo "Occupé";
+                        } else {
+                            echo "Libre";
+                        } ?>
                     </span>
                 </div>
             </div>

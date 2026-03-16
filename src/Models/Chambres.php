@@ -41,6 +41,11 @@ class Chambres {
         return $this->prix;
     }
 
+    public function getOccupe()
+    {
+        return $this->occupe;
+    }
+
     public function getCategorie()
     {
         return $this->categorie;
