@@ -2,10 +2,9 @@
 ob_start();
 
 
-// if (!isset($_SESSION['user'])) {
-//     header('Location: /auth/login/');
-// }
-
+if (!isset($_SESSION['user'])) {
+    header('Location: /auth/login/');
+}
 ?>
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -15,7 +14,7 @@ ob_start();
             <i class="fas fa-sync text-slate-300"></i>
         </div>
         <div class="space-y-8">
-            
+
             <div>
                 <div class="flex justify-between items-end mb-2">
                     <span class="font-bold text-slate-700">--nom--</span>
@@ -25,7 +24,7 @@ ob_start();
                     <div class="h-full bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-1000" style="width: 100%"></div>
                 </div>
             </div>
-           
+
         </div>
     </div>
     <div class="bg-slate-900 rounded-3xl p-8 text-white relative overflow-hidden shadow-2xl shadow-slate-900/40">

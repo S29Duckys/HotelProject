@@ -2,10 +2,9 @@
 ob_start();
 
 
-// if (!isset($_SESSION['user'])) {
-//     header('Location: /auth/login/');
-// }
-
+if (!isset($_SESSION['user'])) {
+    header('Location: /auth/login/');
+}
 ?>
 
 <div class="glass-card rounded-3xl overflow-hidden">

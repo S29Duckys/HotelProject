@@ -2,10 +2,9 @@
 ob_start();
 
 
-// if (!isset($_SESSION['user'])) {
-//     header('Location: /auth/login/');
-// }
-
+if (!isset($_SESSION['user'])) {
+    header('Location: /auth/login/');
+}
 ?>
 
 <div class="glass-card rounded-3xl p-8">
@@ -19,7 +18,7 @@ ob_start();
         </button>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        
+
         <div class="p-6 border border-slate-100 rounded-3xl bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all group">
             <div class="flex items-center gap-4 mb-4">
                 <!-- <div class="w-14 h-14 bg-blue-50 text-blue-600 flex items-center justify-center rounded-2xl font-black text-xl">--nom-- --prenom--</div> -->
@@ -33,7 +32,7 @@ ob_start();
                 <div class="flex items-center gap-2 text-slate-400 text-[10px] font-bold uppercase tracking-widest"><i class="fas fa-lock"></i> MDP : ********</div>
             </div>
         </div>
-  
+
     </div>
 </div>
 
