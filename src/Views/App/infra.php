@@ -2,10 +2,9 @@
 ob_start();
 
 
-// if (!isset($_SESSION['user'])) {
-//     header('Location: /auth/login/');
-// }
-
+if (!isset($_SESSION['user'])) {
+    header('Location: /auth/login/');
+}
 ?>
 
 <div class="space-y-8">
@@ -41,14 +40,14 @@ ob_start();
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-100">
-                
+
                 <tr class="hover:bg-slate-50 transition-colors">
                     <td class="px-6 py-4 font-bold text-slate-800">--name--</td>
                     <td class="px-6 py-4 text-xs font-medium">--types--</td>
                     <td class="px-6 py-4 text-xs text-slate-500">--cap-- Pers.</td>
                     <td class="px-6 py-4"><span class="w-2 h-2 rounded-full bg-emerald-500 inline-block mr-2"></span><span class="text-[10px] font-bold text-emerald-600">DISPONIBLE</span></td>
                 </tr>
-               
+
             </tbody>
         </table>
     </div>
