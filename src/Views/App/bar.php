@@ -6,7 +6,7 @@ if (!isset($_SESSION['user'])) {
     header('Location: /auth/login/');
 }
 ?>
-
+<?php foreach ($bars as $bar) { ?>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
     <div class="glass-card p-8 rounded-3xl">
         <div class="flex justify-between items-center mb-8">
@@ -56,6 +56,7 @@ if (!isset($_SESSION['user'])) {
         <i class="fas fa-glass-cheers absolute -right-10 -bottom-10 text-white/5 text-[200px] rotate-12"></i>
     </div>
 </div>
+<?php } ?>
 
 <?php
 
