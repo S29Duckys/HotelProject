@@ -35,7 +35,7 @@ class UserManager {
     }
 
     public function store($password) {
-        $stmt = $this->bdd->prepare("INSERT INTO User(id, username, password, admin) VALUES (?, ?, ?, ?)");
+        $stmt = $this->bdd->prepare("INSERT INTO User(id_user, username, password, role) VALUES (?, ?, ?, ?)");
         $stmt->execute(array(
             uniqid(),
             $_POST["username"],
@@ -45,19 +45,19 @@ class UserManager {
     }
 
     public function getAllUsers() {
-        $stmt = $this->bdd->prepare("SELECT * FROM user ORDER BY id ASC");
+        $stmt = $this->bdd->prepare("SELECT * FROM user ORDER BY id_user ASC");
         $stmt->execute();
         return $stmt->fetchAll();
     }
 
     public function findById($id) {
-        $stmt = $this->bdd->prepare("SELECT * FROM user WHERE id = ?");
+        $stmt = $this->bdd->prepare("SELECT * FROM user WHERE id_user = ?");
         $stmt->execute([$id]);
         return $stmt->fetch();
     }
 
     public function updateAdminStatus($userId, $status) {
-        $stmt = $this->bdd->prepare("UPDATE user SET admin = ? WHERE id = ?");
+        $stmt = $this->bdd->prepare("UPDATE user SET admin = ? WHERE id_user = ?");
         return $stmt->execute([$status, $userId]);
     }
 }

@@ -162,6 +162,12 @@ CREATE TABLE Bar_Boisson (
     FOREIGN KEY (id_boisson) REFERENCES Boisson(id_boisson)  ON DELETE CASCADE
 ) ENGINE=InnoDB ROW_FORMAT=DYNAMIC;
 
+CREATE TABLE User (
+    id_user     INT PRIMARY KEY AUTO_INCREMENT,
+    username    VARCHAR(50)  NOT NULL UNIQUE,
+    password    VARCHAR(255) NOT NULL,
+    role        VARCHAR(20)  NOT NULL DEFAULT 'admin'
+) ENGINE=InnoDB ROW_FORMAT=DYNAMIC;
 
 
 
@@ -327,3 +333,7 @@ INSERT INTO Bar_Boisson (id_bar, id_boisson, quantite_stock) VALUES
 (1, 1, 100), (1, 2, 50), (1, 5, 30), (1, 6, 80),
 (2, 1, 80),  (2, 3, 40), (2, 4, 35), (2, 7, 60),
 (3, 2, 60),  (3, 5, 25), (3, 6, 45), (3, 7, 70);
+
+INSERT INTO User (username, password, role) VALUES
+('admin',    '1234', 'admin'),
+('receptionniste', '1234', 'staff');
