@@ -2,10 +2,9 @@
 ob_start();
 
 
-// if (!isset($_SESSION['user'])) {
-//     header('Location: /auth/login/');
-// }
-
+if (!isset($_SESSION['user'])) {
+    header('Location: /auth/login/');
+}
 ?>
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
@@ -56,14 +55,14 @@ ob_start();
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-100">
-                
+
                 <tr class="hover:bg-blue-50/50 transition-colors">
                     <td class="px-6 py-4 font-bold text-slate-700">--ref--</td>
                     <td class="px-6 py-4 text-xs text-slate-500">--date--</td>
                     <td class="px-6 py-4 font-black text-blue-600">--total--</td>
                     <td class="px-6 py-4"><i class="fas fa-ellipsis-h text-slate-300"></i></td>
                 </tr>
-                
+
             </tbody>
         </table>
     </div>
