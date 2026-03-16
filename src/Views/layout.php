@@ -57,7 +57,7 @@
                 <div class="bg-slate-800/50 rounded-2xl p-4 flex items-center gap-3">
                     <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">AD</div>
                     <div class="flex-1 overflow-hidden">
-                        <p class="text-xs font-bold text-white truncate">Administrateur</p>
+                        <p class="text-xs font-bold text-white truncate"><?php echo old('username'); ?></p>
                         <p class="text-[10px] text-emerald-400 font-bold uppercase tracking-widest italic">Connecté</p>
                     </div>
                 </div>
