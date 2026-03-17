@@ -22,4 +22,10 @@ class RestaurantController
         require VIEWS . 'App/restaurant.php';
     }
 
+    public function affiche($id)
+    {
+        $solo = $this->manager->show($id);
+        require VIEWS . 'App/menu.php' ;
+    }
+
 }

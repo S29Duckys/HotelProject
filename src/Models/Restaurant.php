@@ -11,6 +11,7 @@ class Restaurant {
     private $id_menu;
     private $menu_name;
     private $description;
+    private $image;
     private $prix_un;
 
 
@@ -41,6 +42,11 @@ class Restaurant {
     public function getPrixUn() {
         return $this->prix_un;
     }
+
+    public function getImage() {
+        return $this->image;
+    }
+
 
 
 
@@ -73,5 +79,10 @@ class Restaurant {
     public function setPrixUn($prix_un)
     {
         $this->prix_un = $prix_un;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
     }
 }

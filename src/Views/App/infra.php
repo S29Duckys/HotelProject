@@ -42,7 +42,16 @@ if (!isset($_SESSION['user'])) {
                     <td class="px-6 py-4 font-bold text-slate-800"><?= $salle->getNameSalle() ?></td>
                     <td class="px-6 py-4 text-xs font-medium"><?= $salle->getType() ?></td>
                     <td class="px-6 py-4 text-xs text-slate-500"><?= $salle->getDescriptionSalle() ?></td>
-                    <td class="px-6 py-4"><span class="w-2 h-2 rounded-full bg-emerald-500 inline-block mr-2"></span><span class="text-[10px] font-bold text-emerald-600">DISPONIBLE</span></td>
+                    <?php if ($salle->getStatus()) {
+                        if ($salle->getStatus() === "confirmée") {
+                        echo "<td class='px-6 py-4'><span class='w-2 h-2 rounded-full bg-red-500 inline-block mr-2'></span><span class='text-[10px] font-bold text-red-600'>"."réservée"."</span></td>";
+                        } elseif ($salle->getStatus() === "en attente") {
+                        echo "<td class='px-6 py-4'><span class='w-2 h-2 rounded-full bg-orange-500 inline-block mr-2'></span><span class='text-[10px] font-bold text-orange-600'>"."réservation en attente"."</span></td>";
+                        } 
+                    } else {
+                        echo "<td class='px-6 py-4'><span class='w-2 h-2 rounded-full bg-emerald-500 inline-block mr-2'></span><span class='text-[10px] font-bold text-emerald-600'>"."Libre"."</span></td>";
+                    } ?>
+                    
                 </tr>
             <?php } ?>
             </tbody>

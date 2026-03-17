@@ -30,7 +30,7 @@ class InfraManager
 
     public function getAllSalle()
     {
-        $stmt = $this->bdd->query("SELECT `id_salle`, `name` AS name_salle, `description` AS description_salle, `image` AS image_salle, `type`, `options` FROM `salle`");
+        $stmt = $this->bdd->query("SELECT s.id_salle, s.name AS name_salle, s.description AS description_salle, s.image AS image_salle, s.type, s.options, cs.status FROM salle s LEFT JOIN client_salle cs ON s.id_salle = cs.id_salle GROUP BY s.id_salle");
         $stmt->setFetchMode(\PDO::FETCH_CLASS, "MVC\Models\Infra");
 
         return $stmt->fetchAll();
