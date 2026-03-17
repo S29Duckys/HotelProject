@@ -28,4 +28,16 @@ class RestaurantManager
         return $stmt->fetchAll();
     }
 
+    public function show($id) {
+        $stmt = $this->bdd->prepare("SELECT * FROM menu WHERE id_menu = ?");
+
+        $stmt->execute([
+            $id
+        ]);
+        
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, "MVC\Models\Restaurant");
+
+        return $stmt->fetchAll();
+    }
+
 }

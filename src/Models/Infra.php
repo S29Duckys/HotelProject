@@ -20,6 +20,7 @@ class Infra {
     private $image_salle;
     private $type;
     private $options;
+    private $status;
 
 /**get */
 
@@ -80,6 +81,10 @@ class Infra {
         return $this->options;
     }
 
+    public function getStatus() {
+        return $this->status;
+    }
+
 
 /**set */
 
@@ -135,6 +140,10 @@ class Infra {
 
     public function setOption($option) {
         $this->option = $option;
+    }
+
+    public function setStatus($status) {
+        $this->status = $status;
     }
 }
 
