@@ -21,31 +21,24 @@ class BarManager
         return $this->bdd;
     }
 
-    public function getAll()
+    public function getBar()
     {
-        $stmt = $this->bdd->query("SELECT
-    b.id_bar,
-    b.name,
-    bo.name,
-    bb.quantite_stock,
-    c.nom,
-    c.prenom,
-    cb.quantite,
-    cb.date
-FROM Bar b
-JOIN Bar_Boisson bb ON b.id_bar = bb.id_bar
-JOIN Boisson bo ON bb.id_boisson = bo.id_boisson
-LEFT JOIN Client_Boisson cb ON bo.id_boisson = cb.id_boisson
-LEFT JOIN Client c ON cb.id_client = c.id_client
-WHERE cb.date = (
-    SELECT MAX(cb2.date)
-    FROM Client_Boisson cb2
-    WHERE cb2.id_boisson = bo.id_boisson
-)
-ORDER BY b.name, bo.name;");
+        $stmt = $this->bdd->query("SELECT * FROM Bar");
         $stmt->setFetchMode(\PDO::FETCH_CLASS, "MVC\Models\Bar");
 
         return $stmt->fetchAll();
     }
 
+    public function getBoissonBar($id_bar)
+    {
+
+        $stmt = $this->bdd->prepare("SELECT bb.*, bo.name AS boisson_name FROM bar_boisson bb JOIN boisson bo ON bb.id_boisson = bo.id_boisson WHERE id_bar = ?");
+
+        $stmt->execute([
+            $id_bar
+        ]);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, "MVC\Models\Bar");
+
+        return $stmt->fetchAll();
+    }
 }
