@@ -6,7 +6,8 @@ class RestaurantController
 {
     public function __construct()
     {
-
+        $this->manager = new BarManager();
+        $this->validator = new Validator();
     }
 
     public function index()

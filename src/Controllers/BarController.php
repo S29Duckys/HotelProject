@@ -15,13 +15,6 @@ class BarController
         $this->validator = new Validator();
     }
 
-    // public function index()
-    // {
-    //     $bars = $this->manager->getBar();
-    //     $boissonBar = $this->manager->getBoissonBar($id_bar);
-    //     require VIEWS . 'App/bar.php';
-    // }
-
     public function index()
     {
         $commandes = $this->manager->getClientBoisson();
