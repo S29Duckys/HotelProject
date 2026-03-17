@@ -2,7 +2,7 @@
 
 namespace MVC\Controllers;
 
-class RestaurentController
+class RestaurantController
 {
     public function __construct()
     {
@@ -11,7 +11,7 @@ class RestaurentController
 
     public function index()
     {
-        require VIEWS . 'App/restaurent.php';
+        require VIEWS . 'App/restaurant.php';
     }
 
 }
