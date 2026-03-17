@@ -6,8 +6,9 @@ if (!isset($_SESSION['user'])) {
     header('Location: /auth/login/');
 }
 ?>
-<?php foreach ($bars as $bar) { ?>
+
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <?php foreach ($bars as $bar) { ?>
     <div class="glass-card p-8 rounded-3xl">
         <div class="flex justify-between items-center mb-8">
             <h3 class="text-xl font-black text-slate-800 uppercase italic tracking-tighter"><i class="fas fa-wine-bottle text-purple-600 mr-2"></i> <?= $bar->getName() ?> </h3>
@@ -30,21 +31,26 @@ if (!isset($_SESSION['user'])) {
 
         </div>
     </div>
+    <?php } ?>
     <div class="bg-slate-900 rounded-3xl p-8 text-white relative overflow-hidden shadow-2xl shadow-slate-900/40">
         <div class="relative z-10">
             <h3 class="text-xl font-black mb-8">Dernières Commandes Client</h3>
             <div class="space-y-4">
+                <?php if (empty($commandes)){
+                      echo "<p>Aucune commande trouvée.</p>";
+                } else { foreach ($commandes as $commande) { ?>
                 <div class="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-between">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center"><i class="fas fa-cocktail"></i></div>
                         <div>
-                            <p class="text-sm font-bold">2x Mojito</p>
-                            <p class="text-[10px] text-slate-500">Client: Noah Ben</p>
+                            <p class="text-sm font-bold"><?= $commande->getClientBoissonQte() ?>x <?= $commande->getBoissonName() ?></p>
+                            <p class="text-[10px] text-slate-500">Client: <?= $commande->getClientPrenom() ?> <?= $commande->getClientNom() ?></p>
                         </div>
                     </div>
-                    <div class="font-black">22.00 €</div>
+                    <div class="font-black"><?= $commande->getPrixUnBoisson() ?> €</div>
                 </div>
-                <div class="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-between opacity-60">
+                <?php }} ?>
+                <!-- <div class="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-between opacity-60">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 bg-slate-700 rounded-xl flex items-center justify-center"><i class="fas fa-beer"></i></div>
                         <div>
@@ -53,13 +59,13 @@ if (!isset($_SESSION['user'])) {
                         </div>
                     </div>
                     <div class="font-black">6.00 €</div>
-                </div>
+                </div> -->
             </div>
         </div>
         <i class="fas fa-glass-cheers absolute -right-10 -bottom-10 text-white/5 text-[200px] rotate-12"></i>
     </div>
 </div>
-<?php } ?>
+
 
 <?php
 

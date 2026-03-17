@@ -24,6 +24,7 @@ class BarController
 
     public function index()
     {
+        $commandes = $this->manager->getClientBoisson();
         $bars = $this->manager->getBar();
         $boissonsBar = [];
         foreach ($bars as $bar) {

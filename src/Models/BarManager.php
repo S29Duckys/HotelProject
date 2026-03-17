@@ -41,4 +41,13 @@ class BarManager
 
         return $stmt->fetchAll();
     }
+
+    public function getClientBoisson()
+    {
+
+        $stmt = $this->bdd->prepare("SELECT cb.id_client, cb.id_client_boisson, cb.id_boisson, cb.quantite AS client_boisson_qte, cb.date AS client_boisson_date, cl.nom AS client_nom, cl.prenom AS client_prenom, bo.name AS boisson_name, bo.prix_un AS prix_un_boisson FROM client_boisson cb JOIN client cl ON cb.id_client = cl.id_client JOIN boisson bo ON cb.id_boisson = bo.id_boisson ORDER BY cb.date DESC LIMIT 2");
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, "MVC\Models\Bar");
+
+        return $stmt->fetchAll();
+    }
 }
