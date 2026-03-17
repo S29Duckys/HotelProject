@@ -8,28 +8,34 @@ if (!isset($_SESSION['user'])) {
 ?>
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+    <?php foreach ($homes as $home) { ?>
     <div class="glass-card p-6 rounded-3xl">
         <div class="flex justify-between items-start mb-4">
             <div class="p-3 bg-blue-500/10 text-blue-600 rounded-2xl"><i class="fas fa-file-invoice-dollar text-xl"></i></div>
             <span class="text-emerald-500 text-xs font-bold">+12.5%</span>
         </div>
         <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">CA Total (Factures)</p>
-        <h3 class="text-2xl font-black text-slate-800 mt-1">1,395.50 €</h3>
+        <h3 class="text-2xl font-black text-slate-800 mt-1"><?= $home->getTotaux(); ?> €</h3>
     </div>
+    <?php } ?>
+    <?php foreach ($homes as $home) { ?>
     <div class="glass-card p-6 rounded-3xl">
         <div class="flex justify-between items-start mb-4">
             <div class="p-3 bg-indigo-500/10 text-indigo-600 rounded-2xl"><i class="fas fa-users text-xl"></i></div>
         </div>
         <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Clients Inscrits</p>
-        <h3 class="text-2xl font-black text-slate-800 mt-1">---</h3>
+        <h3 class="text-2xl font-black text-slate-800 mt-1"><?= $home->getNombreClient(); ?></h3>
     </div>
+    <?php } ?>
+    <?php foreach ($homes as $home) { ?>
     <div class="glass-card p-6 rounded-3xl">
         <div class="flex justify-between items-start mb-4">
             <div class="p-3 bg-amber-500/10 text-amber-600 rounded-2xl"><i class="fas fa-bed text-xl"></i></div>
         </div>
         <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Chambres Occupées</p>
-        <h3 class="text-2xl font-black text-slate-800 mt-1">02 / 06</h3>
+        <h3 class="text-2xl font-black text-slate-800 mt-1"><?= $home->getOccupe(); ?> / <?= $home->getTotalChambre(); ?></h3>
     </div>
+    <?php } ?>
     <div class="glass-card p-6 rounded-3xl">
         <div class="flex justify-between items-start mb-4">
             <div class="p-3 bg-purple-500/10 text-purple-600 rounded-2xl"><i class="fas fa-wine-glass-alt text-xl"></i></div>
@@ -55,14 +61,14 @@ if (!isset($_SESSION['user'])) {
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-100">
-
+            <?php foreach ($factures as $facture) { ?>
                 <tr class="hover:bg-blue-50/50 transition-colors">
-                    <td class="px-6 py-4 font-bold text-slate-700">--ref--</td>
-                    <td class="px-6 py-4 text-xs text-slate-500">--date--</td>
-                    <td class="px-6 py-4 font-black text-blue-600">--total--</td>
+                    <td class="px-6 py-4 font-bold text-slate-700"><?= $facture->getNumReference(); ?></td>
+                    <td class="px-6 py-4 text-xs text-slate-500"><?= $facture->getDate(); ?></td>
+                    <td class="px-6 py-4 font-black text-blue-600"><?= $facture->getTotalTtc(); ?></td>
                     <td class="px-6 py-4"><i class="fas fa-ellipsis-h text-slate-300"></i></td>
                 </tr>
-
+            <?php } ?>
             </tbody>
         </table>
     </div>
