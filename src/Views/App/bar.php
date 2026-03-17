@@ -20,7 +20,7 @@ if (!isset($_SESSION['user'])) {
                 <?php foreach ($boissonsBar[$bar->getIdBar()] as $boisson) { ?>
                 <div class="flex justify-between items-end mb-2">
                     
-                    <span class="font-bold text-slate-700"><?= $boisson->getBoissonName() ?></span>
+                    <span class="font-bold text-slate-700"><?= $boisson->getBoissonName() ?>  |  <?= $boisson->getPrixUnBoisson() ?> €</span>
                     <span class="text-[10px] font-black text-slate-400"><?= $boisson->getQteStock() ?> / 100 UNITES</span>
                 </div>
                 <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
@@ -36,9 +36,7 @@ if (!isset($_SESSION['user'])) {
         <div class="relative z-10">
             <h3 class="text-xl font-black mb-8">Dernières Commandes Client</h3>
             <div class="space-y-4">
-                <?php if (empty($commandes)){
-                      echo "<p>Aucune commande trouvée.</p>";
-                } else { foreach ($commandes as $commande) { ?>
+                <?php foreach ($commandes as $commande) { ?>
                 <div class="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-between">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center"><i class="fas fa-cocktail"></i></div>
@@ -47,19 +45,9 @@ if (!isset($_SESSION['user'])) {
                             <p class="text-[10px] text-slate-500">Client: <?= $commande->getClientPrenom() ?> <?= $commande->getClientNom() ?></p>
                         </div>
                     </div>
-                    <div class="font-black"><?= $commande->getPrixUnBoisson() ?> €</div>
+                    <div class="font-black"><?= $commande->getPrixCommande() ?> €</div>
                 </div>
-                <?php }} ?>
-                <!-- <div class="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-between opacity-60">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-slate-700 rounded-xl flex items-center justify-center"><i class="fas fa-beer"></i></div>
-                        <div>
-                            <p class="text-sm font-bold">1x Bière Heineken</p>
-                            <p class="text-[10px] text-slate-500">Client: Jean Dupont</p>
-                        </div>
-                    </div>
-                    <div class="font-black">6.00 €</div>
-                </div> -->
+                <?php } ?>
             </div>
         </div>
         <i class="fas fa-glass-cheers absolute -right-10 -bottom-10 text-white/5 text-[200px] rotate-12"></i>

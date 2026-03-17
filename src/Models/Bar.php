@@ -15,6 +15,7 @@ class Bar {
     private $client_prenom;
     private $client_boisson_qte;
     private $client_boisson_date;
+    private $prix_commande;
 
     public function getIdBar() {
         return $this->id_bar;
@@ -54,6 +55,10 @@ class Bar {
 
     public function getPrixUnBoisson() {
         return $this->prix_un_boisson;
+    }
+
+    public function getPrixCommande() {
+        return $this->prix_commande;
     }
 
 
@@ -96,5 +101,9 @@ class Bar {
 
     public function setPrixUnBoisson($prix_un_boisson) {
         $this->prix_un_boisson = $prix_un_boisson;
+    }
+
+    public function setPrixCommande($prix_commande) {
+        $this->prix_commande = $prix_commande;
     }
 }
