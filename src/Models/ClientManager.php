@@ -4,7 +4,6 @@ namespace MVC\Models;
 
 use MVC\Models\Client;
 
-/** Class UserManager **/
 class ClientManager
 {
 

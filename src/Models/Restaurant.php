@@ -3,42 +3,75 @@ namespace MVC\Models;
 
 /** Class Restaurant **/
 class Restaurant {
+/*data restaurant */
+    private $id_restaurant;
+    private $name;
+    
+/**data menus */
+    private $id_menu;
+    private $menu_name;
+    private $description;
+    private $prix_un;
 
-    private $username;
-    private $password;
-    private $id_user;
-    private $role;
 
-    public function getUsername() {
-        return $this->username;
+
+/*get*/
+    public function getIdRestaurant() {
+        return $this->id_restaurant;
     }
 
-    public function getPassword() {
-        return $this->password;
+    public function getName() {
+        return $this->name;
     }
 
-    public function getId() {
-        return $this->id_user;
+
+    /**get menus */
+    public function getIdMenu() {
+        return $this->id_menu;
     }
 
-    public function getRole()
+    public function getMenuName() {
+        return $this->menu_name;
+    }
+
+    public function getDescription() {
+        return $this->description;
+    }
+
+    public function getPrixUn() {
+        return $this->prix_un;
+    }
+
+
+
+/**set */
+    public function setIdRestaurant() {
+        $this->id_restaurant = uniqid();
+    }
+
+    public function setAdmin($name)
     {
-        return $this->role;
-    }
-    public function setUsername(String $username) {
-        $this->username = $username;
+        $this->name = $name;
     }
 
-    public function setPassword(String $password) {
-        $this->password = $password;
-    }
-
-    public function setId() {
-        $this->id_user = uniqid();
-    }
-
-    public function setAdmin($role)
+    /** set menus */
+    public function setIdMenu($id_menu)
     {
-        $this->role = $role;
+        $this->id_menu = $id_menu;
+    }
+
+    public function setMenuName($menu_name)
+    {
+        $this->menu_name = $menu_name;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    public function setPrixUn($prix_un)
+    {
+        $this->prix_un = $prix_un;
     }
 }
