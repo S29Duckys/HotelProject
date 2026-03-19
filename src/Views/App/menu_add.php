@@ -26,7 +26,7 @@ if (!isset($_SESSION['user'])) {
             <!-- Nom -->
             <div>
                 <label class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Nom du menu</label>
-                <input type="text" name="nom" placeholder="Ex : Menu du Terroir" value=""
+                <input type="text" name="nom" placeholder="Ex : Menu du Terroir" value="<?= htmlspecialchars(old('nom')) ?>"
                     class="w-full bg-slate-100 border-none rounded-2xl py-3 px-5 text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none">
             </div>
 
@@ -34,13 +34,13 @@ if (!isset($_SESSION['user'])) {
             <div>
                 <label class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Description</label>
                 <textarea name="description" rows="3" placeholder="Ex : Entrée + Plat + Dessert au choix..."
-                    class="w-full bg-slate-100 border-none rounded-2xl py-3 px-5 text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none resize-none"></textarea>
+                    class="w-full bg-slate-100 border-none rounded-2xl py-3 px-5 text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none resize-none"><?= htmlspecialchars(old('description')) ?></textarea>
             </div>
 
             <!-- Prix -->
             <div>
                 <label class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Prix (€)</label>
-                <input type="number" name="prix" step="0.01" min="0" placeholder="Ex : 32.00" value=""
+                <input type="number" name="prix" step="0.01" min="0" placeholder="Ex : 32.00" value="<?= htmlspecialchars(old('prix')) ?>"
                     class="w-full bg-slate-100 border-none rounded-2xl py-3 px-5 text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none">
             </div>
 
@@ -50,9 +50,9 @@ if (!isset($_SESSION['user'])) {
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                     <?php foreach ($restos as $resto) { ?>
                     <label class="flex items-center gap-3 border border-slate-100 rounded-2xl p-4 cursor-pointer hover:bg-slate-50 transition-colors">
-                        <input type="checkbox" name="restaurants[]" value="1" class="accent-blue-600 w-4 h-4">
+                        <input type="checkbox" name="restaurants[]" value="<?= htmlspecialchars($resto->getIdRestaurant()) ?>" class="accent-blue-600 w-4 h-4">
                         <div>
-                            <p class="text-sm font-bold text-slate-800"><?= $resto->getName() ?></p>
+                            <p class="text-sm font-bold text-slate-800"><?= htmlspecialchars($resto->getName()) ?></p>
                         </div>
                     </label>
                     <?php } ?>

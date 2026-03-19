@@ -22,4 +22,16 @@ class ClientController
         require VIEWS . 'App/clients.php';
     }
 
+    public function insert() {
+        $this->manager->create();
+        header("Location: /clients");
+        exit;
+  }
+
+    public function create() {
+            $restos = $this->manager->getRestos();
+            require VIEWS . 'App/clients.php';
+        
+    }
+
 }
