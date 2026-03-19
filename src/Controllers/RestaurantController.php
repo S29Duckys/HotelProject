@@ -2,24 +2,24 @@
 
 namespace MVC\Controllers;
 
-use MVC\Models\ClientManager;
+use MVC\Models\RestaurantManager;
 use MVC\Validator;
 
-class ClientController
+class RestaurantController
 {
     private $manager;
     private $validator;
 
     public function __construct()
     {
-        $this->manager = new ClientManager();
+        $this->manager = new RestaurantManager();
         $this->validator = new Validator();
     }
 
     public function index()
     {
-        $clients = $this->manager->getAll();
-        require VIEWS . 'App/clients.php';
+        $menus = $this->manager->getAll();
+        require VIEWS . 'App/restaurant.php';
     }
 
 }

@@ -42,7 +42,7 @@
                 </a>
 
                 <p class="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] px-4 py-6">Services</p>
-                <a href="<?= '/restaurent' ?>" id="btn-restaurant" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5 <?= $currentPath === '/restaurent' ? 'active-nav' : '' ?>">
+                <a href="<?= '/restaurant' ?>" id="btn-restaurant" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5 <?= $currentPath === '/restaurant' ? 'active-nav' : '' ?>">
                     <i class="fas fa-utensils w-5"></i> Restaurant
                 </a>
                 <a href="<?= '/bar' ?>" id="btn-bar" class="nav-link w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all hover:bg-white/5 <?= $currentPath === '/bar' ? 'active-nav' : '' ?>">

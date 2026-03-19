@@ -1,0 +1,77 @@
+<?php
+namespace MVC\Models;
+
+/** Class Restaurant **/
+class Restaurant {
+/*data restaurant */
+    private $id_restaurant;
+    private $name;
+    
+/**data menus */
+    private $id_menu;
+    private $menu_name;
+    private $description;
+    private $prix_un;
+
+
+
+/*get*/
+    public function getIdRestaurant() {
+        return $this->id_restaurant;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+
+    /**get menus */
+    public function getIdMenu() {
+        return $this->id_menu;
+    }
+
+    public function getMenuName() {
+        return $this->menu_name;
+    }
+
+    public function getDescription() {
+        return $this->description;
+    }
+
+    public function getPrixUn() {
+        return $this->prix_un;
+    }
+
+
+
+/**set */
+    public function setIdRestaurant() {
+        $this->id_restaurant = uniqid();
+    }
+
+    public function setAdmin($name)
+    {
+        $this->name = $name;
+    }
+
+    /** set menus */
+    public function setIdMenu($id_menu)
+    {
+        $this->id_menu = $id_menu;
+    }
+
+    public function setMenuName($menu_name)
+    {
+        $this->menu_name = $menu_name;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    public function setPrixUn($prix_un)
+    {
+        $this->prix_un = $prix_un;
+    }
+}

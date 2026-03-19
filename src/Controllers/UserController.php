@@ -73,9 +73,9 @@ class UserController {
 
             if ($res && password_verify($_POST['password'], $res->getPassword())) {
                 $_SESSION["user"] = [
-                    "id" => $res->getId(),
+                    "id_user" => $res->getId(),
                     "username" => $res->getUsername(),
-                    "admin" => $res->getAdmin()
+                    "role" => $res->getRole()
                 ];
                 header("Location: /");
             } else {
