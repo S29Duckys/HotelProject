@@ -72,7 +72,7 @@ if (!isset($_SESSION['user'])) {
             </tbody>
         </table>
     </div>
-    <div class="glass-card p-6 rounded-3xl">
+    <!-- <div class="glass-card p-6 rounded-3xl">
         <h3 class="font-bold text-slate-800 mb-6">Prochaines Salles (Table: Client_Salle)</h3>
         <div class="space-y-4">
             <div class="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
@@ -92,7 +92,7 @@ if (!isset($_SESSION['user'])) {
                 <div class="ml-auto text-[10px] font-bold text-amber-500">ATTENTE</div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <?php

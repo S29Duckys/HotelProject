@@ -29,7 +29,7 @@ class RestaurantManager
     }
 
     public function show($id) {
-        $stmt = $this->bdd->prepare("SELECT * FROM menu WHERE id_menu = ?");
+        $stmt = $this->bdd->prepare("SELECT m.*, r.* FROM menu m JOIN restaurant_menu rm ON m.id_menu = rm.id_menu JOIN restaurant r ON r.id_restaurant = rm.id_restaurant WHERE m.id_menu = ?");
 
         $stmt->execute([
             $id
@@ -38,6 +38,27 @@ class RestaurantManager
         $stmt->setFetchMode(\PDO::FETCH_CLASS, "MVC\Models\Restaurant");
 
         return $stmt->fetchAll();
+    }
+
+    
+
+    public function delete($id) {
+        $stmt = $this->bdd->prepare("DELETE FROM menu WHERE id_menu = ?");
+
+       return $stmt->execute([
+            $id
+        ]);
+    }
+
+    public function create() {
+        $stmt = $this->bdd->prepare("
+            INSERT INTO menu (name, description, image, prix_un)
+            VALUES (?, ?, ?, ?, ?)
+        ");
+
+        return $stmt->execute([
+            $_POST['name'], $_POST['description'], 'image.jpg', $_POST['prix_un']
+        ]);
     }
 
 }
