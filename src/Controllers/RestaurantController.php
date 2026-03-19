@@ -44,6 +44,6 @@ class RestaurantController
             $restos = $this->manager->getRestos();
             require VIEWS . 'App/menu_add.php';
         
-        }
+    }
 
 }
