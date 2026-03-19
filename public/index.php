@@ -14,10 +14,10 @@ $router->get('/bar' , "BarController@index");
 $router->get('/chambres' , "ChambresController@index");
 
 $router->get('/restaurant', "RestaurantController@index");
+$router->get('/restaurant/create', "RestaurantController@create");
+$router->post('restaurant/insert', "RestaurantController@insert");
 $router->get('/restaurant/:id', "RestaurantController@affiche");
 $router->get('/restaurant/delete/:id', "RestaurantController@delete");
-$router->get('/restaurant/create', "RestaurantController@create");
-
 
 $router->get('/auth/login/', "UserController@showLogin");
 $router->get('/auth/register/', "UserController@showRegister");

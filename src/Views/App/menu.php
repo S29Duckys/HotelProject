@@ -4,6 +4,11 @@ ob_start();
 if (!isset($_SESSION['user'])) {
     header('Location: /auth/login/');
 }
+
+if (empty($solo)) {
+    header('Location: /restaurant');
+    exit;
+}
 ?>
 
 <div class="space-y-6">
@@ -41,16 +46,7 @@ if (!isset($_SESSION['user'])) {
             </div>
         <?php } ?>
 
-            <!-- <div class="border border-slate-100 rounded-2xl p-5 hover:bg-slate-50 transition-colors">
-                <div class="w-10 h-10 bg-emerald-500 text-white rounded-xl flex items-center justify-center font-black mb-3">R2</div>
-                <p class="font-bold text-slate-800 text-sm">La Brasserie du Lac</p>
-            </div>
-
-            <div class="border border-slate-100 rounded-2xl p-5 hover:bg-slate-50 transition-colors">
-                <div class="w-10 h-10 bg-emerald-500 text-white rounded-xl flex items-center justify-center font-black mb-3">R4</div>
-                <p class="font-bold text-slate-800 text-sm">Le Rooftop</p>
-            </div> -->
-
+            
         </div>
     </div>
 
@@ -58,7 +54,7 @@ if (!isset($_SESSION['user'])) {
         <a href="/restaurant" class="px-5 py-2.5 rounded-xl text-sm font-bold border border-slate-200 text-slate-600 hover:bg-slate-100 transition-colors">
             <i class="fas fa-arrow-left mr-2"></i> Retour
         </a>
-        <a href="#" class="px-5 py-2.5 rounded-xl text-sm font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
+        <a href="/restaurant" class="px-5 py-2.5 rounded-xl text-sm font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
             <i class="fas fa-pen mr-2"></i> Modifier
         </a>
         <a href="/restaurant/delete/<?= $solo[0]->getIdMenu() ?>" class="px-5 py-2.5 rounded-xl text-sm font-bold bg-red-500 text-white shadow-lg shadow-red-200 hover:scale-105 transition-transform">

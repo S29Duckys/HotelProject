@@ -8,7 +8,12 @@ if (!isset($_SESSION['user'])) {
 ?>
 
 <div class="glass-card rounded-3xl p-8">
-    <h2 class="text-2xl font-black text-slate-900 mb-8">Menus & Carte (Table: Menu)</h2>
+    <div class="flex items-center justify-between mb-8">
+    <h2 class="text-2xl font-black text-slate-900">Menus & Carte (Table: Menu)</h2>
+    <a href="/restaurant/create" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-blue-200 hover:scale-105 transition-transform">
+        <i class="fas fa-plus mr-2"></i> Nouveau menu
+    </a>
+</div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <?php foreach ($menus as $menu) { ?>
         <a href="/restaurant/<?= $menu->getIdMenu() ?>">
