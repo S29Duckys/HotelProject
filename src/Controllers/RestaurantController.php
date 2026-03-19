@@ -22,13 +22,13 @@ class RestaurantController
         require VIEWS . 'App/restaurant.php';
     }
 
-    public function affiche(int $id)
+    public function affiche($id)
     {
         $solo = $this->manager->show($id);
         require VIEWS . 'App/menu.php' ;
     }
 
-    public function delete(int $id) {
+    public function delete($id) {
         $this->manager->delete($id);
         header("Location: /restaurant");
         exit;
@@ -36,9 +36,14 @@ class RestaurantController
 
     public function insert() {
     $this->manager->create();
-    header("Location: /menu");
+    header("Location: /restaurant");
     exit;
   }
 
+    public function create() {
+            $restos = $this->manager->getRestos();
+            require VIEWS . 'App/menu_add.php';
+        
+        }
 
 }

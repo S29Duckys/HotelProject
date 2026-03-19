@@ -28,8 +28,16 @@ class RestaurantManager
         return $stmt->fetchAll();
     }
 
+    public function getRestos()
+    {
+        $stmt = $this->bdd->query("SELECT * FROM restaurant");
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, "MVC\Models\Restaurant");
+
+        return $stmt->fetchAll();
+    }
+
     public function show($id) {
-        $stmt = $this->bdd->prepare("SELECT m.*, r.* FROM menu m JOIN restaurant_menu rm ON m.id_menu = rm.id_menu JOIN restaurant r ON r.id_restaurant = rm.id_restaurant WHERE m.id_menu = ?");
+        $stmt = $this->bdd->prepare("SELECT m.*, r.* FROM menu m LEFT JOIN restaurant_menu rm ON m.id_menu = rm.id_menu LEFT JOIN restaurant r ON r.id_restaurant = rm.id_restaurant WHERE m.id_menu = ?");
 
         $stmt->execute([
             $id
@@ -51,14 +59,21 @@ class RestaurantManager
     }
 
     public function create() {
-        $stmt = $this->bdd->prepare("
-            INSERT INTO menu (name, description, image, prix_un)
-            VALUES (?, ?, ?, ?, ?)
-        ");
+    $stmt = $this->bdd->prepare("INSERT INTO menu (name, description, prix_un) VALUES (?, ?, ?)");
+    $stmt->execute([
+        $_POST['nom'],
+        $_POST['description'],
+        $_POST['prix']
+    ]);
 
-        return $stmt->execute([
-            $_POST['name'], $_POST['description'], 'image.jpg', $_POST['prix_un']
-        ]);
+    $id_menu = $this->bdd->lastInsertId();
+
+    if (!empty($_POST['restaurants'])) {
+        $stmt2 = $this->bdd->prepare("INSERT IGNORE INTO restaurant_menu (id_restaurant, id_menu) VALUES (?, ?)");
+        foreach ($_POST['restaurants'] as $id_restaurant) {
+            $stmt2->execute([$id_restaurant, $id_menu]);
+        }
     }
+}
 
 }
