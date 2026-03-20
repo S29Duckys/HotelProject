@@ -23,7 +23,7 @@ class UserManager
 
     public function find(String $username): User | false
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt = $this->bdd->prepare("SELECT * FROM users WHERE nom = ?");
         $stmt->execute(array(
             $username
         ));
@@ -41,7 +41,7 @@ class UserManager
 
     public function store($password)
     {
-        $stmt = $this->bdd->prepare("INSERT INTO Users(username, password, role) VALUES (?, ?, ?)");
+        $stmt = $this->bdd->prepare("INSERT INTO Users(nom, password, role) VALUES (?, ?, ?)");
         $stmt->execute(array(
             $_POST["username"],
             $password,
