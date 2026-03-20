@@ -1,10 +1,9 @@
 <?php
 namespace MVC\Models;
 
-/** Class Infra **/
 class Infra {
 
-/**data piscine */
+    // Propriétés liées à la piscine
     private $id_piscine;
     private $name_piscine;
     private $description_piscine;
@@ -13,7 +12,7 @@ class Infra {
     private $fermeture;
     private $nettoyage;
 
-/**data salle */
+    // Propriétés liées à la salle
     private $id_salle;
     private $name_salle;
     private $description_salle;
@@ -22,9 +21,9 @@ class Infra {
     private $options;
     private $status;
 
-/**get */
+    // Getters
 
-    /**piscine */
+    // Piscine
     public function getIdPiscine() {
         return $this->id_piscine;
     }
@@ -53,8 +52,7 @@ class Infra {
         return $this->nettoyage;
     }
 
-
-    /**salle */
+    // Salle
     public function getIdSalle() {
         return $this->id_salle;
     }
@@ -71,13 +69,11 @@ class Infra {
         return $this->image_salle;
     }
 
-    public function getType()
-    {
+    public function getType() {
         return $this->type;
     }
 
-    public function getOptions()
-    {
+    public function getOptions() {
         return $this->options;
     }
 
@@ -85,10 +81,9 @@ class Infra {
         return $this->status;
     }
 
+    // Setters
 
-/**set */
-
-    /**piscine */
+    // Piscine
     public function setIdPiscine($id_piscine) {
         $this->id_piscine = $id_piscine;
     }
@@ -117,7 +112,7 @@ class Infra {
         $this->nettoyage = $nettoyage;
     }
 
-    /** salle */
+    // Salle
     public function setIdSalle($id_salle) {
         $this->id_salle = $id_salle;
     }
@@ -139,11 +134,10 @@ class Infra {
     }
 
     public function setOption($option) {
-        $this->option = $option;
+        $this->options = $option;
     }
 
     public function setStatus($status) {
         $this->status = $status;
     }
 }
-

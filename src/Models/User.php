@@ -1,13 +1,15 @@
 <?php
 namespace MVC\Models;
 
-/** Class User **/
 class User {
 
+    // Propriétés de l'utilisateur
     private $username;
     private $password;
     private $id_user;
     private $role;
+
+    // Getters
 
     public function getUsername() {
         return $this->username;
@@ -21,10 +23,12 @@ class User {
         return $this->id_user;
     }
 
-    public function getRole()
-    {
+    public function getRole() {
         return $this->role;
     }
+
+    // Setters
+
     public function setUsername(String $username) {
         $this->username = $username;
     }
@@ -37,8 +41,7 @@ class User {
         $this->id_user = uniqid();
     }
 
-    public function setAdmin($role)
-    {
+    public function setAdmin($role) {
         $this->role = $role;
     }
 }

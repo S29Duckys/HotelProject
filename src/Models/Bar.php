@@ -1,9 +1,9 @@
 <?php
 namespace MVC\Models;
 
-/** Class Bar **/
 class Bar {
 
+    // Propriétés liées au bar et aux boissons
     private $id_bar;
     private $name;
     private $id_boisson;
@@ -11,11 +11,14 @@ class Bar {
     private $quantite_stock;
     private $prix_un_boisson;
 
+    // Propriétés liées aux commandes clients
     private $client_nom;
     private $client_prenom;
     private $client_boisson_qte;
     private $client_boisson_date;
     private $prix_commande;
+
+    // Getters
 
     public function getIdBar() {
         return $this->id_bar;
@@ -61,7 +64,7 @@ class Bar {
         return $this->prix_commande;
     }
 
-
+    // Setters
 
     public function setIdBar(string $id_bar) {
         $this->id_bar = $id_bar;

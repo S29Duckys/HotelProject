@@ -1,9 +1,9 @@
 <?php
 namespace MVC\Models;
 
-/** Class User **/
 class Chambres {
 
+    // Propriétés de la chambre
     private $name;
     private $description;
     private $id_chambre;
@@ -13,6 +13,7 @@ class Chambres {
     private $occupe;
     private $categorie;
 
+    // Getters
 
     public function getName() {
         return $this->name;
@@ -26,30 +27,27 @@ class Chambres {
         return $this->id_chambre;
     }
 
-    public function getImage()
-    {
+    public function getImage() {
         return $this->image;
     }
 
-    public function getOptions()
-    {
+    public function getOptions() {
         return $this->options;
     }
 
-    public function getPrix()
-    {
+    public function getPrix() {
         return $this->prix;
     }
 
-    public function getOccupe()
-    {
+    public function getOccupe() {
         return $this->occupe;
     }
 
-    public function getCategorie()
-    {
+    public function getCategorie() {
         return $this->categorie;
     }
+
+    // Setters
 
     public function setName(String $name) {
         $this->name = $name;
@@ -60,31 +58,26 @@ class Chambres {
     }
 
     public function setId_chambre() {
-        $this->id = uniqid();
+        $this->id_chambre = uniqid();
     }
 
-    public function setImage($image)
-    {
+    public function setImage($image) {
         $this->image = $image;
     }
 
-    public function setOptions($options)
-    {
+    public function setOptions($options) {
         $this->options = $options;
     }
 
-    public function setPrix($prix)
-    {
+    public function setPrix($prix) {
         $this->prix = $prix;
     }
 
-    public function setOccupe($occupe)
-    {
+    public function setOccupe($occupe) {
         $this->occupe = $occupe;
     }
 
-    public function setCategorie($categorie)
-    {
+    public function setCategorie($categorie) {
         $this->categorie = $categorie;
     }
 }

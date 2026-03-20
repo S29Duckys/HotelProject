@@ -1,26 +1,24 @@
 <?php
 namespace MVC\Models;
 
-/** Class User **/
 class Home {
 
-/**factures  getLastFacture */
+    // Propriétés liées aux factures
     private $id_facture;
     private $num_reference;
     private $date;
     private $total_ttc;
 
-/**homes getAll */
+    // Propriétés liées aux données générales de l'accueil
     private $totaux;
     private $nombre_client;
     private $occupe;
     private $total_chambre;
 
+    // Getters
 
-/**get */
-
-    /**factures */
-        public function getIdFacture() {
+    // Factures
+    public function getIdFacture() {
         return $this->id_facture;
     }
 
@@ -36,8 +34,7 @@ class Home {
         return $this->total_ttc;
     }
 
-
-    /**homes */
+    // Accueil
     public function getTotaux() {
         return $this->totaux;
     }
@@ -54,10 +51,10 @@ class Home {
         return $this->total_chambre;
     }
 
-/**set */
+    // Setters
 
-    /**factures */
-        public function setIdFacture($id_facture) {
+    // Factures
+    public function setIdFacture($id_facture) {
         $this->id_facture = $id_facture;
     }
 
@@ -73,8 +70,7 @@ class Home {
         $this->total_ttc = $total_ttc;
     }
 
-
-    /**homes */
+    // Accueil
     public function setTotaux($totaux) {
         $this->totaux = $totaux;
     }
@@ -91,4 +87,3 @@ class Home {
         $this->total_chambre = $total_chambre;
     }
 }
-
