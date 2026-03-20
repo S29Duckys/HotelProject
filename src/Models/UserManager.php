@@ -23,7 +23,7 @@ class UserManager
 
     public function find(String $username): User | false
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM user WHERE username = ?");
+        $stmt = $this->bdd->prepare("SELECT * FROM users WHERE username = ?");
         $stmt->execute(array(
             $username
         ));
@@ -34,14 +34,14 @@ class UserManager
 
     public function all()
     {
-        $stmt = $this->bdd->query('SELECT * FROM User');
+        $stmt = $this->bdd->query('SELECT * FROM Users');
 
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "MVC\Models\User");
     }
 
     public function store($password)
     {
-        $stmt = $this->bdd->prepare("INSERT INTO User(username, password, role) VALUES (?, ?, ?)");
+        $stmt = $this->bdd->prepare("INSERT INTO Users(username, password, role) VALUES (?, ?, ?)");
         $stmt->execute(array(
             $_POST["username"],
             $password,
@@ -51,21 +51,21 @@ class UserManager
 
     public function getAllUsers()
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM user ORDER BY id_user ASC");
+        $stmt = $this->bdd->prepare("SELECT * FROM users ORDER BY id_user ASC");
         $stmt->execute();
         return $stmt->fetchAll();
     }
 
     public function findById($id)
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM user WHERE id_user = ?");
+        $stmt = $this->bdd->prepare("SELECT * FROM users WHERE id_user = ?");
         $stmt->execute([$id]);
         return $stmt->fetch();
     }
 
     public function updateAdminStatus($userId, $status)
     {
-        $stmt = $this->bdd->prepare("UPDATE user SET admin = ? WHERE id_user = ?");
+        $stmt = $this->bdd->prepare("UPDATE users SET admin = ? WHERE id_user = ?");
         return $stmt->execute([$status, $userId]);
     }
 }
