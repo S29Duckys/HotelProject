@@ -1,7 +1,6 @@
 <?php
 ob_start();
 
-
 if (!isset($_SESSION['user'])) {
     header('Location: /auth/login/');
 }
@@ -21,15 +20,17 @@ if (!isset($_SESSION['user'])) {
         <?php foreach ($clients ?? [] as $client) { ?>
         <div class="p-6 border border-slate-100 rounded-3xl bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all group">
             <div class="flex items-center gap-4 mb-4">
-                <div class="w-14 h-14 bg-blue-50 text-blue-600 flex items-center justify-center rounded-2xl font-black text-xl"></div>
+                <div class="w-14 h-14 bg-blue-50 text-blue-600 flex items-center justify-center rounded-2xl font-black text-xl">
+                    <?= htmlspecialchars(mb_strtoupper(mb_substr($client->getPrenom(), 0, 1) . mb_substr($client->getNom(), 0, 1))) ?>
+                </div>
                 <div>
-                    <h4 class="font-black text-slate-800 text-lg"><?= $client->getPrenom() ?> <?= $client->getNom() ?></h4>
-                    <p class="text-xs text-blue-500 font-bold"><?= $client->getId() ?></p>
+                    <h4 class="font-black text-slate-800 text-lg"><?= htmlspecialchars($client->getPrenom()) ?> <?= htmlspecialchars($client->getNom()) ?></h4>
+                    <p class="text-xs text-blue-500 font-bold">#<?= htmlspecialchars($client->getId()) ?></p>
                 </div>
             </div>
             <div class="space-y-3 pt-4 border-t border-slate-50 text-sm">
-                <div class="flex items-center gap-2 text-slate-500"><i class="fas fa-envelope text-xs"></i><?= $client->getEmail() ?></div>
-                <div class="flex items-center gap-2 text-slate-400 text-[10px] font-bold uppercase tracking-widest"><i class="fas fa-lock"></i> MDP : <?= $client->getMdp() ?></div>
+                <div class="flex items-center gap-2 text-slate-500"><i class="fas fa-envelope text-xs"></i> <?= htmlspecialchars($client->getEmail()) ?></div>
+                <div class="flex items-center gap-2 text-slate-400 text-[10px] font-bold uppercase tracking-widest"><i class="fas fa-lock"></i> MDP : ••••••••</div>
             </div>
         </div>
         <?php } ?>
@@ -37,6 +38,5 @@ if (!isset($_SESSION['user'])) {
 </div>
 
 <?php
-
 $content = ob_get_clean();
 require VIEWS . 'layout.php';

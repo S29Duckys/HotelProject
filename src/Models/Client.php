@@ -1,15 +1,16 @@
 <?php
 namespace MVC\Models;
 
-/** Class client **/
 class Client {
 
+    // Propriétés du client
     private $nom;
     private $prenom;
     private $id_client;
     private $email;
     private $mdp;
 
+    // Getters
 
     public function getNom() {
         return $this->nom;
@@ -23,15 +24,15 @@ class Client {
         return $this->id_client;
     }
 
-    public function getEmail()
-    {
+    public function getEmail() {
         return $this->email;
     }
 
-    public function getMdp()
-    {
+    public function getMdp() {
         return $this->mdp;
     }
+
+    // Setters
 
     public function setNom(String $nom) {
         $this->nom = $nom;
@@ -45,13 +46,11 @@ class Client {
         $this->id_client = uniqid();
     }
 
-    public function setEmail($email)
-    {
+    public function setEmail($email) {
         $this->email = $email;
     }
 
-    public function setMdp($mdp)
-    {
+    public function setMdp($mdp) {
         $this->mdp = $mdp;
     }
 }
